@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
+import { useContext, useEffect, useState } from 'react';
 import Quantity from './Quantity';
+import { Context } from '../contexts/Context';
 
 const ItemContainer = styled.div`
  display: flex;
@@ -14,23 +16,22 @@ interface ProductDefinition {
  name: string;
  priceGBP: number;
  quantity: number;
- setBasket: any;
 }
 
-const Product = ({
- name,
- priceGBP,
- quantity,
- setBasket,
-}: ProductDefinition) => {
+const Product = ({ name, priceGBP, quantity }: ProductDefinition) => {
+ const [totalUnitPrice, setTotalUnitPrice] = useState(quantity);
+ const { basketItems } = useContext(Context);
+ useEffect(() => {
+  setTotalUnitPrice(quantity * priceGBP);
+ }, [basketItems]);
  return (
   <ItemContainer>
    <P>{name}</P>
    <P>{priceGBP}</P>
    <P>
-    <Quantity quantity={quantity} setBasket={setBasket} productName={name} />
+    <Quantity quantity={quantity} productName={name} />
    </P>
-   <P>{name}</P>
+   <P>{totalUnitPrice.toFixed(2)}</P>
   </ItemContainer>
  );
 };

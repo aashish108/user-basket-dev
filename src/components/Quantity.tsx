@@ -11,7 +11,7 @@ const QuantityInput = styled.input`
  flex-direction: column;
 `;
 
-type A = { quantity: number; setBasket: any; productName: string };
+type A = { quantity: number; productName: string };
 type B = { productName: string; priceGBP?: number; quantity: number };
 
 const incrementQuantity = (
@@ -32,7 +32,7 @@ const incrementQuantity = (
  return foundProduct;
 };
 
-const Quantity = ({ quantity, setBasket, productName }: A) => {
+const Quantity = ({ quantity, productName }: A) => {
  const [quantityState, setQuantityState] = useState(quantity);
  const { basketItems, setBasketItems } = useContext(Context);
 
@@ -41,7 +41,7 @@ const Quantity = ({ quantity, setBasket, productName }: A) => {
  };
 
  useEffect(() => {
-  console.log('basketItems', basketItems);
+  console.log('basketItems in quantity comp', basketItems);
  }, [basketItems]);
 
  useEffect(() => {

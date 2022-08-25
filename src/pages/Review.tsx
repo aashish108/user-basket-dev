@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
-import { useContext } from 'react';
-import Product from '../components/Product';
-import { Context, Provider } from '../contexts/Context';
+import BasketItems from '../components/BasketItems';
+import { Provider } from '../contexts/Context';
 
 const ReviewContainer = styled.div`
  display: flex;
@@ -18,7 +17,6 @@ const Headers = styled.div`
 `;
 
 const ReviewPage = () => {
- const { basketItems, setBasketItems } = useContext(Context);
  return (
   <Provider>
    <ReviewContainer>
@@ -28,16 +26,7 @@ const ReviewPage = () => {
      <Header>Quantity</Header>
      <Header>Cost</Header>
     </Headers>
-    {basketItems.map(
-     (item: { quantity: number; productName: string; priceGBP: number }) => (
-      <Product
-       name={item.productName}
-       priceGBP={item.priceGBP}
-       quantity={item.quantity}
-       setBasket={setBasketItems}
-      />
-     )
-    )}
+    <BasketItems />
    </ReviewContainer>
   </Provider>
  );
