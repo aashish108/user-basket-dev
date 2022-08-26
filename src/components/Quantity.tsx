@@ -4,11 +4,16 @@ import { Context } from '../contexts/Context';
 
 const QuantityContainer = styled.div`
  display: flex;
- flex-direction: column;
+ flex-direction: row;
 `;
 const QuantityInput = styled.input`
  display: flex;
  flex-direction: column;
+`;
+const QuantityButton = styled.button`
+ display: flex;
+ flex-direction: column;
+ margin-left: 10px;
 `;
 
 type A = { quantity: number; productName: string };
@@ -37,12 +42,12 @@ const Quantity = ({ quantity, productName }: A) => {
  const { basketItems, setBasketItems } = useContext(Context);
 
  const changeHandler = (event: { target: { value: any } }) => {
-  setQuantityState(Number(event.target.value));
+  let value = Number(event.target.value);
+  if (value <= 0) {
+   return setQuantityState(0);
+  }
+  return setQuantityState(Number(event.target.value));
  };
-
- useEffect(() => {
-  console.log('basketItems in quantity comp', basketItems);
- }, [basketItems]);
 
  useEffect(() => {
   const newProductQuantity = incrementQuantity(
@@ -54,6 +59,17 @@ const Quantity = ({ quantity, productName }: A) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
  }, [quantityState]);
 
+ function handleQuantityIncrease() {
+  return setQuantityState(quantityState + 1);
+ }
+
+ const handleQuantityDecrease = () => {
+  if (quantityState <= 0) {
+   return setQuantityState(0);
+  }
+  return setQuantityState(quantityState - 1);
+ };
+
  return (
   <QuantityContainer>
    <QuantityInput
@@ -62,6 +78,8 @@ const Quantity = ({ quantity, productName }: A) => {
     name={productName}
     onChange={changeHandler}
    />
+   <QuantityButton onClick={handleQuantityDecrease}>-</QuantityButton>
+   <QuantityButton onClick={handleQuantityIncrease}>+</QuantityButton>
   </QuantityContainer>
  );
 };

@@ -23,6 +23,7 @@ const Product = ({ name, priceGBP, quantity }: ProductDefinition) => {
  const { basketItems } = useContext(Context);
  useEffect(() => {
   setTotalUnitPrice(quantity * priceGBP);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
  }, [basketItems]);
  return (
   <ItemContainer>
