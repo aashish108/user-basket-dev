@@ -16,12 +16,14 @@ type A = { name: string };
 const DeleteButton = ({ name }: A) => {
  const { basketItems, setBasketItems } = useContext(Context);
  const [currentProductName] = useState(name);
+
  const deleteProduct = () => {
   const newBasket = basketItems.filter(
    (item) => item.productName !== currentProductName
   );
   setBasketItems(newBasket);
  };
+
  return <Button onClick={deleteProduct}>Delete</Button>;
 };
 

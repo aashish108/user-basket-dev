@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import BasketItems from '../components/BasketItems';
 import Totals from '../components/Totals';
 import { Provider } from '../contexts/Context';
+import BuyButton from '../components/BuyButton';
 
 const Container = styled.div`
  display: flex;
@@ -40,6 +41,7 @@ const ReviewPage = () => {
      <BasketItems />
      <Border />
      <Totals />
+     <BuyButton />
     </ReviewContainer>
    </Container>
   </Provider>
