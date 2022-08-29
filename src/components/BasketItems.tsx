@@ -21,6 +21,7 @@ const BasketItems = () => {
     <Header>Price</Header>
     <Header>Quantity</Header>
     <Header>Cost</Header>
+    <Header>Options</Header>
    </Headers>
    {basketItems.map(
     (

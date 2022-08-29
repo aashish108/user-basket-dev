@@ -9,6 +9,18 @@ const QuantityContainer = styled.div`
 const QuantityInput = styled.input`
  display: flex;
  flex-direction: column;
+ width: 25px;
+ /* Chrome, Safari, Edge, Opera */
+ &::-webkit-outer-spin-button,
+ &::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+ }
+
+ /* Firefox */
+ &[type='number'] {
+  -moz-appearance: textfield;
+ }
 `;
 const QuantityButton = styled.button`
  display: flex;

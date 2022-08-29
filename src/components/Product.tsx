@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { useContext, useEffect, useState } from 'react';
 import Quantity from './Quantity';
 import { Context } from '../contexts/Context';
+import DeleteButton from './DeleteButton';
 
 const ItemContainer = styled.div`
  display: flex;
@@ -9,7 +10,7 @@ const ItemContainer = styled.div`
  justify-content: space-between;
 `;
 const P = styled.p`
- font-size: 12px;
+ font-size: 14px;
 `;
 
 interface ProductDefinition {
@@ -33,6 +34,9 @@ const Product = ({ name, priceGBP, quantity }: ProductDefinition) => {
     <Quantity quantity={quantity} productName={name} />
    </P>
    <P>{totalUnitPrice.toFixed(2)}</P>
+   <P>
+    <DeleteButton name={name} />
+   </P>
   </ItemContainer>
  );
 };
