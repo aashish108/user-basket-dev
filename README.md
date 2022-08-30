@@ -1,3 +1,9 @@
+# Intro
+
+Just a simple basket app to play around with React/TypeScript.
+
+Added some simple tests to work with Jest and React Testing Libraries for some simple DOM checks.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
