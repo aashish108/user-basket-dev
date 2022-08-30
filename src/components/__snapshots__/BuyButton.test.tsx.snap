@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="css-1mtu2dh"
+>
+  <button
+    className="css-lvrehb"
+    disabled={false}
+    onClick={[Function]}
+  >
+    Buy
+  </button>
+</div>
+`;
+
+exports[`shows the correct button text 1`] = `
+<div
+  className="css-1mtu2dh"
+>
+  <button
+    className="css-lvrehb"
+    disabled={false}
+    onClick={[Function]}
+  >
+    Buy
+  </button>
+</div>
+`;

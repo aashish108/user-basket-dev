@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<button
+  className="css-1c5dypr"
+  onClick={[Function]}
+>
+  Delete
+</button>
+`;
+
+exports[`shows the correct button text 1`] = `
+<button
+  className="css-1c5dypr"
+  onClick={[Function]}
+>
+  Delete
+</button>
+`;
